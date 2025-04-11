@@ -1,9 +1,11 @@
+using DevelopmentProject.Repository;
 using DevelopmentProject.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IUtilRepository, UtilRepository>();
 builder.Services.AddSingleton<IScraperService, ScraperService>();
 
 var app = builder.Build();
