@@ -1,0 +1,46 @@
+﻿@model ScraperResponseModel
+@{
+    ViewData["Title"] = "Scraper Results";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="alert alert-info" role="alert">
+            <h2 class="text-center">Your url @Model.UrlToSearch was found on @Model.Coincidences out of @Model.NumberOfResults results</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h4 class="text-center">Request details</h4>
+        </div>
+    </div>
+    <div class="row">
+        <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item">
+                <strong>Url to search</strong><br>
+                @Model.UrlToSearch
+            </li>
+            <li class="list-group-item">
+                <strong>Keywords</strong><br>
+                @Model.Keywords
+            </li>
+            <li class="list-group-item">
+                <strong>Number of results</strong><br>
+                @Model.NumberOfResults
+            </li>
+            <li class="list-group-item">
+                <strong>Total coincidences</strong><br>
+                @Model.Coincidences
+            </li>
+        </ul>
+    </div>
+    <div class="form-row">
+        <div class="col form-group text-center">
+            <p><a class="btn btn-primary btn-lg btn-block" role="button" asp-area="" asp-controller="Home" asp-action="Scraper">Run the tool again</a></p>
+        </div>
+        <div class="col form-group text-end">
+            <p><a asp-area="" asp-controller="Home" asp-action="Index">Return Home</a></p>
+        </div>
+    </div>
+</div>

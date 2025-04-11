@@ -1,0 +1,66 @@
+﻿@model ScraperRequestModel
+@{
+    ViewData["Title"] = "Scraper Tool";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<form asp-action="ScraperResponse" method="post">
+    <div class="container">
+        <div class="row">
+            <h2 class="mb-4 text-center">How It Works</h2>
+            <p>Please fill out the form below with the following three fields:</p>
+
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item">
+                    <strong>1. Target URL</strong><br>
+                    Provide the specific URL you want to track. It’ll use this to count how many times your URL appears in the search results for the keywords you entered.
+                </li>
+                <li class="list-group-item">
+                    <strong>2. Keywords</strong><br>
+                    Enter the search terms you'd like to use for a Google search. These are the words or phrases that users might type into Google.
+                </li>
+                <li class="list-group-item">
+                    <strong>3. Number of Results to Scan</strong><br>
+                    Specify how many search results you'd like to check. For example, if you enter "50", it’ll analyze the top 50 Google results for your keywords and count how many times your URL appears.
+                </li>
+            </ul>
+
+            <p>Once you submit the form, it’ll process the search and show you how visible your URL is within the selected range of Google search results.</p>
+        </div>
+        <div class="form-row">
+            <div class="col form-group">
+                <label for="urlToSearch">UrlToSearch:</label>
+                <input type="text" id="urlToSearch" class="form-control" name="UrlToSearch" asp-for="UrlToSearch" value="www.infotrack.co.uk" />
+                <span asp-validation-for="UrlToSearch"></span>
+                <small id="urlToSearchHelp" class="form-text text-muted text-end">URL to check on the search results</small>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col form-group">
+                <label for="keywords">Keywords:</label>
+                <input type="text" id="keywords" class="form-control" name="Keywords" asp-for="Keywords" value="land registry search" />
+                <span asp-validation-for="Keywords"></span>
+                <small id="keywordsHelp" class="form-text text-muted">Insert here your keywords to search on google</small>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col form-group">
+                <label for="numberOfResults">NumberOfResults:</label>
+                <input type="number" id="numberOfResults" class="form-control" name="NumberOfResults" asp-for="NumberOfResults" value="100" />
+                <span asp-validation-for="NumberOfResults"></span>
+                <small id="numberOfResultsHelp" class="form-text text-muted">Number of results</small>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col form-group text-center">
+                <p><button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button></p>
+            </div>
+            <div class="col form-group text-end">
+                <p><a asp-area="" asp-controller="Home" asp-action="Index">Return Home</a></p>
+            </div>
+        </div>
+    </div>
+</form>
+
+    
